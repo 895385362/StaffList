@@ -44,13 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CookieHelper.cs" />
     <Compile Include="DeviceModel.cs" />
-    <Compile Include="OperareBase.cs" />
     <Compile Include="OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffModel.cs" />
-    <Compile Include="UploadHelper.cs" />
     <Compile Include="uploadModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

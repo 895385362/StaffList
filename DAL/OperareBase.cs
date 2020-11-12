@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace Models
+namespace DAL
 {
     public class OperareBase
     {

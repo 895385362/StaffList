@@ -4,8 +4,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Web;
+using Models;
 
-namespace Models
+namespace DAL
 {
     public class UploadHelper
     {
