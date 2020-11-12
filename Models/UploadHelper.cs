@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace StaffList
+namespace Models
 {
     public class UploadHelper
     {
