@@ -23,7 +23,6 @@ namespace StaffList
             get
             {
                 string sa = string.Empty;
-               
                  sa = (string)CookieHelper.GetCookieValue("StaffID");
                 return sa;
             }
@@ -38,7 +37,6 @@ namespace StaffList
             {
                 if (Session["StaffID"] == null)
                 {
-                    
                     Response.Redirect("~/Login.aspx");
                 } 
             }

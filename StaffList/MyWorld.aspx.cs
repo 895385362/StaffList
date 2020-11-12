@@ -25,12 +25,30 @@ namespace StaffList
         #region 根据Cookie获取到ID赋值给文本框
         public void GetStaffDetail()
         {
-            string StaffID = Session["StaffID"].ToString();
-            if (StaffID != null)
+            string StaffID = CookieHelper.GetCookieValue("StaffID").ToString();
+            if (!String.IsNullOrEmpty(StaffID))
             {
-                if (!String.IsNullOrEmpty(StaffID))
+                DataSet StaffListByStaffID_Ds = OperareBase.getData("select * from Info_staff where staffID=" + StaffID + "");
+                //判断 容器中的数据条数是否 >0 大于0代表根据 StaffID查询到了数据 
+                //Tables[0]第一张表  Rows[0]第一行 [""]代表第一行里的哪一个字段
+                if (StaffListByStaffID_Ds.Tables[0].Rows.Count > 0)
                 {
-                    DataSet StaffListByStaffID_Ds = OperareBase.getData("select * from Info_staff where staffID=" + StaffID + "");
+                    StaffID = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffID"].ToString();
+                    StaffAvatarImg.ImageUrl = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffAvatar"].ToString();
+                    staffNum.Text = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffNum"].ToString();
+                    staffName.Text = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffName"].ToString();
+                    Sex_tb.SelectedValue = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffSex"].ToString();
+                    staffAge.Text = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffAge"].ToString();
+                    staffMobile.Text = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffMobile"].ToString();
+                    staffPassword.Text = StaffListByStaffID_Ds.Tables[0].Rows[0]["staffPassword"].ToString();
+                }
+            }
+            else
+            {
+                string StaffID_Value = Session["StaffID"].ToString();
+                if (!String.IsNullOrEmpty(StaffID_Value))
+                {
+                    DataSet StaffListByStaffID_Ds = OperareBase.getData("select * from Info_staff where staffID=" + StaffID_Value + "");
                     //判断 容器中的数据条数是否 >0 大于0代表根据 StaffID查询到了数据 
                     //Tables[0]第一张表  Rows[0]第一行 [""]代表第一行里的哪一个字段
                     if (StaffListByStaffID_Ds.Tables[0].Rows.Count > 0)
