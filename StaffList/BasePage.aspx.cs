@@ -16,16 +16,33 @@ namespace StaffList
             OnInit(null);
         }
 
-       
+        public string LoginStaffID
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(CurrentUser))
+                {
+                    if (Session["StaffID"]!=null)
+                    {
+                        return Session["StaffID"].ToString();
+                    }
+                    else
+                    {
+                        return"";
+                    }
+                }
+                else
+                {
+                    return (string)CookieHelper.GetCookieValue("StaffID");
+                }
+            }
+        }
 
         public string CurrentUser
         {
             get
             {
-                string sa = string.Empty;
-               
-                 sa = (string)CookieHelper.GetCookieValue("StaffID");
-                return sa;
+                return (string)CookieHelper.GetCookieValue("StaffID");
             }
             set
             {

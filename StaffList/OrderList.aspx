@@ -13,6 +13,7 @@
 
              <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
                 <Items>
+                    <asp:MenuItem NavigateUrl ="~/OrderList.aspx" Text="订单列表" Value="订单列表"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl ="~/DeviceList.aspx" Text="设备列表" Value="设备列表"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl ="~/MyWorld.aspx" Text="个人信息" Value="个人信息"></asp:MenuItem>
                 </Items>

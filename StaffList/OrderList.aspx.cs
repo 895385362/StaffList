@@ -25,10 +25,17 @@ namespace StaffList
         #region 将根据ID查询到的数据用控件显示
         public void GetOrderList()
         {
-            string IDValue_Cookie = CookieHelper.GetCookieValue("StaffID");
-            if (!string.IsNullOrEmpty(IDValue_Cookie))
+            BasePage basePage = new BasePage();
+            string where = string.Empty;
+            if (!string.IsNullOrEmpty(basePage.LoginStaffID))
             {
-                DataSet ds = OperareBase.getData("select * from V_o_s_d where staffID = "+ IDValue_Cookie);
+                if (basePage.LoginStaffID != "2")
+                {
+                    where = " where staffID='" + basePage.LoginStaffID + "'";
+                }
+                string sql = "select * from V_o_s_d";
+                sql += where;
+                DataSet ds = OperareBase.getData(sql);
                 Repeater1.DataSource = ds;
                 Repeater1.DataBind();
             }
