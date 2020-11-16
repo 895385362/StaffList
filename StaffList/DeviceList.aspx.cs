@@ -24,10 +24,10 @@ namespace StaffList
                 }
                 else
                 {
-                    //Response.Redirect("OrderList.aspx");
                     Response.Write("<script>alert('无权限显示该列表')</script>");
+                    Response.Redirect("OrderList.aspx");
                 }
-               
+
             }
             #endregion
         }
