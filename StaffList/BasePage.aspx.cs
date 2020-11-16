@@ -55,7 +55,6 @@ namespace StaffList
             {
                 if (Session["StaffID"] == null)
                 {
-                    
                     Response.Redirect("~/Login.aspx");
                 } 
             }
