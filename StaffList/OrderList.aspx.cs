@@ -36,9 +36,25 @@ namespace StaffList
                 string sql = "select * from V_o_s_d";
                 sql += where;
                 DataSet ds = OperareBase.getData(sql);
-                Repeater1.DataSource = ds;
+                Repeater1.DataSource = this.GetPage(ds);
                 Repeater1.DataBind();
             }
+        }
+        #endregion
+
+        #region 分页方法
+        public PagedDataSource GetPage(DataSet ds)
+        {
+            this.AspNetPager1.RecordCount = ds.Tables[0].Rows.Count;
+            PagedDataSource pds = new PagedDataSource();
+            pds.DataSource = ds.Tables[0].DefaultView;
+            //是否启用分页
+            pds.AllowPaging = true;
+            //当前页是多少页
+            pds.CurrentPageIndex = AspNetPager1.CurrentPageIndex - 1;
+            //显示多少条数据
+            pds.PageSize = AspNetPager1.PageSize;
+            return pds;
         }
         #endregion
 
@@ -57,6 +73,13 @@ namespace StaffList
                 //Session.Clear();
                 Response.Redirect("Login.aspx");
             }
+            #endregion
+        }
+
+        protected void AspNetPager1_PageChanged(object sender, EventArgs e)
+        {
+            #region 分页点击
+            this.GetOrderList();
             #endregion
         }
     }

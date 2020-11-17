@@ -17,7 +17,7 @@ namespace StaffList
             #region 页面加载
             if (!IsPostBack)
             {
-                RepeaterGetData();
+                RepeaterGetData(); 
             }
             #endregion
         }
@@ -31,71 +31,87 @@ namespace StaffList
             }
             DataSet ds = OperareBase.getData(sql);
 
-            #region (三层不用控件时用这个方法)
-            List<StaffModel> staffList = new List<StaffModel>();
-            //循环行
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                StaffModel staffModel = new StaffModel();
-                foreach (DataColumn dc in ds.Tables[0].Columns)
-                {
-                    switch (dc.ColumnName)
-                    {
-                        case "staffID":
-                            staffModel.staffID = Convert.ToInt32(dr["staffID"].ToString());
-                            break;
-                        case "staffNum":
-                            staffModel.staffNum = dr["staffNum"].ToString();
-                            break;
-                        case "staffName":
-                            staffModel.staffName = dr["staffName"].ToString();
-                            break;
-                        case "staffAvatar":
-                            staffModel.staffAvatar = dr["staffAvatar"].ToString();
-                            break;
-                        case "staffSex":
-                            staffModel.staffSex = Convert.ToInt32(dr["staffSex"].ToString());
-                            break;
-                        case "staffAge":
-                            staffModel.staffAge = Convert.ToInt32(dr["staffAge"].ToString());
-                            break;
-                        case "staffMobile":
-                            staffModel.staffMobile = dr["staffMobile"].ToString();
-                            break;
-                        case "staffPassword":
-                            staffModel.staffPassword = dr["staffPassword"].ToString();
-                            break;
-                        case "ProvinceID":
-                            staffModel.ProvinceID = Convert.ToInt32(dr["ProvinceID"].ToString());
-                            break;
-                        case "ProvinceName":
-                            staffModel.ProvinceName = dr["ProvinceName"].ToString();
-                            break;
-                        case "CityID":
-                            staffModel.CityID = Convert.ToInt32(dr["CityID"].ToString());
-                            break;
-                        case "CityName":
-                            staffModel.CityName = dr["CityName"].ToString();
-                            break;
-                        case "DistrictID":
-                            staffModel.DistrictID = Convert.ToInt32(dr["DistrictID"].ToString());
-                            break;
-                        case "DistrictName":
-                            staffModel.DistrictName = dr["DistrictName"].ToString();
-                            break;
-                        case "Address":
-                            staffModel.Address = dr["Address"].ToString();
-                            break;
-                        case "IsDelete":
-                            staffModel.IsDelete = Convert.ToBoolean(dr["IsDelete"]);
-                            break;
-                    }
-                }
-                staffList.Add(staffModel);
-            }
+            #region (三层用这个方法)
+            //List<StaffModel> staffList = new List<StaffModel>();
+            ////循环行
+            //foreach (DataRow dr in ds.Tables[0].Rows)
+            //{
+            //    StaffModel staffModel = new StaffModel();
+            //    foreach (DataColumn dc in ds.Tables[0].Columns)
+            //    {
+            //        switch (dc.ColumnName)
+            //        {
+            //            case "staffID":
+            //                staffModel.staffID = Convert.ToInt32(dr["staffID"].ToString());
+            //                break;
+            //            case "staffNum":
+            //                staffModel.staffNum = dr["staffNum"].ToString();
+            //                break;
+            //            case "staffName":
+            //                staffModel.staffName = dr["staffName"].ToString();
+            //                break;
+            //            case "staffAvatar":
+            //                staffModel.staffAvatar = dr["staffAvatar"].ToString();
+            //                break;
+            //            case "staffSex":
+            //                staffModel.staffSex = Convert.ToInt32(dr["staffSex"].ToString());
+            //                break;
+            //            case "staffAge":
+            //                staffModel.staffAge = Convert.ToInt32(dr["staffAge"].ToString());
+            //                break;
+            //            case "staffMobile":
+            //                staffModel.staffMobile = dr["staffMobile"].ToString();
+            //                break;
+            //            case "staffPassword":
+            //                staffModel.staffPassword = dr["staffPassword"].ToString();
+            //                break;
+            //            case "ProvinceID":
+            //                staffModel.ProvinceID = Convert.ToInt32(dr["ProvinceID"].ToString());
+            //                break;
+            //            case "ProvinceName":
+            //                staffModel.ProvinceName = dr["ProvinceName"].ToString();
+            //                break;
+            //            case "CityID":
+            //                staffModel.CityID = Convert.ToInt32(dr["CityID"].ToString());
+            //                break;
+            //            case "CityName":
+            //                staffModel.CityName = dr["CityName"].ToString();
+            //                break;
+            //            case "DistrictID":
+            //                staffModel.DistrictID = Convert.ToInt32(dr["DistrictID"].ToString());
+            //                break;
+            //            case "DistrictName":
+            //                staffModel.DistrictName = dr["DistrictName"].ToString();
+            //                break;
+            //            case "Address":
+            //                staffModel.Address = dr["Address"].ToString();
+            //                break;
+            //            case "IsDelete":
+            //                staffModel.IsDelete = Convert.ToBoolean(dr["IsDelete"]);
+            //                break;
+            //        }
+            //    }
+            //    staffList.Add(staffModel);
+            //}
             #endregion
-            Repeater1.DataSource = ds;
+            Repeater1.DataSource = this.GetPage(ds);
             Repeater1.DataBind();
+        }
+        #endregion
+
+        #region 分页方法
+        public PagedDataSource GetPage(DataSet ds)
+        {
+            this.AspNetPager1.RecordCount = ds.Tables[0].Rows.Count;
+            PagedDataSource pds = new PagedDataSource();
+            pds.DataSource = ds.Tables[0].DefaultView;
+            //是否启用分页
+            pds.AllowPaging = true;
+            //当前页是多少页
+            pds.CurrentPageIndex = AspNetPager1.CurrentPageIndex - 1;
+            //显示多少条数据
+            pds.PageSize = AspNetPager1.PageSize;
+            return pds;
         }
         #endregion
 
@@ -149,6 +165,11 @@ namespace StaffList
                 RepeaterGetData("select * from dbo.Info_staff ");
             }
             #endregion
+        }
+
+        protected void AspNetPager1_PageChanged(object sender, EventArgs e)
+        {
+            this.RepeaterGetData();
         }
     }
 }

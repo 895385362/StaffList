@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="StaffList.aspx.cs" Inherits="StaffList.StaffList" %>
+<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -32,7 +33,7 @@
                         <td>区/县</td>
                         <td>详细地址</td>
                         <td>状态</td>
-                        <td>操作</td>
+                        <td>操作+<asp:Button ID="Button1" runat="server" Text="注册" OnClick="Button1_Click" /></td>
                     </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -59,18 +60,18 @@
                 </ItemTemplate>
             </asp:Repeater>
         </table>
-        当前第[<asp:Label ID="Label_NowPage" runat="server" Text="1"></asp:Label>]页&nbsp;&nbsp;
+        <div>
+            <webdiyer:AspNetPager ID="AspNetPager1" runat="server" FirstPageText="首页" HorizontalAlign="Center" LastPageText="末页" NextPageText="下一页" PrevPageText="上一页" PageSize="3" AlwaysShow="true" OnPageChanged="AspNetPager1_PageChanged" ></webdiyer:AspNetPager>
+        </div>
+       <%-- 当前第[<asp:Label ID="Label_NowPage" runat="server" Text="1"></asp:Label>]页&nbsp;&nbsp;
             共[<asp:Label ID="Label_MaxPage" runat="server" Text="加载中..."></asp:Label>]&nbsp;&nbsp;
             <asp:LinkButton ID="btn_First" runat="server">首页</asp:LinkButton>&nbsp;&nbsp;
             <asp:LinkButton ID="btn_prev" runat="server">上一页</asp:LinkButton>&nbsp;&nbsp;
             <asp:LinkButton ID="btn_next" runat="server">下一页</asp:LinkButton>&nbsp;&nbsp;
             <asp:LinkButton ID="btn_last" runat="server">末页</asp:LinkButton>&nbsp;&nbsp;
             <asp:DropDownList ID="Pages" runat="server"></asp:DropDownList>&nbsp;&nbsp;
-            <asp:Button ID="btn_go" runat="server" Text="跳转" />&nbsp;&nbsp;
+            <asp:Button ID="btn_go" runat="server" Text="跳转" />&nbsp;&nbsp;--%>
 
-    </div>
-    <div>
-        <asp:Button ID="Button1" runat="server" Text="注册" OnClick="Button1_Click" />
     </div>
 </asp:Content>
 
