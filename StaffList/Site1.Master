@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="StaffList.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
+                    <Items>
+                        <asp:MenuItem  Text="订单列表" Value="订单列表"></asp:MenuItem>
+                        <asp:MenuItem  Text="员工列表" Value="员工列表"></asp:MenuItem>
+                        <asp:MenuItem  Text="设备列表" Value="设备列表"></asp:MenuItem>
+                        <asp:MenuItem  Text="个人信息" Value="个人信息"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

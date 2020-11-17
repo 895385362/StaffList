@@ -1,24 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyWorld.aspx.cs" Inherits="StaffList.MyWorld" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="MyWorld.aspx.cs" Inherits="StaffList.MyWorld" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-              <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
-                <Items>
-                    <asp:MenuItem NavigateUrl ="~/OrderList.aspx" Text="订单列表" Value="订单列表"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl ="~/StaffList.aspx" Text="员工列表" Value="员工列表"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl ="~/DeviceList.aspx" Text="设备列表" Value="设备列表"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl ="~/MyWorld.aspx" Text="个人信息" Value="个人信息"></asp:MenuItem>
-                </Items>
-            </asp:Menu>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div>
             <label>员工头像：</label>
             <asp:Image ID="StaffAvatarImg" runat="server"  />
             <br />
@@ -60,6 +46,5 @@
 
             <asp:Button ID="Button1" runat="server" Text="退出登录" OnClick="Button1_Click" />
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+

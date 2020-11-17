@@ -17,17 +17,7 @@ namespace StaffList
             #region 页面加载
             if (!IsPostBack)
             {
-                BasePage basePage = new BasePage();
-                if (basePage.LoginStaffID == "2")
-                {
-                    RepeaterGetData();
-                }
-                else
-                {
-                    Response.Write("<script>alert('无权限显示该列表')</script>");
-                    Response.Redirect("OrderList.aspx");
-                }
-
+                RepeaterGetData();
             }
             #endregion
         }
