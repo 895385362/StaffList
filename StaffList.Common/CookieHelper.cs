@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Models;
 
-namespace DAL
+namespace Common
 {
     public class CookieHelper
     {

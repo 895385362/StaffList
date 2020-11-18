@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="DeviceList.aspx.cs" Inherits="StaffList.DeviceList" %>
-
+<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         table td {
@@ -35,6 +35,9 @@
                 </ItemTemplate>
             </asp:Repeater>
         </table>
+        <div>
+            <webdiyer:AspNetPager ID="AspNetPager1" runat="server" FirstPageText="首页" HorizontalAlign="Center" LastPageText="末页" NextPageText="下一页" PrevPageText="上一页" PageSize="3" AlwaysShow="true" OnPageChanged="AspNetPager1_PageChanged" ></webdiyer:AspNetPager>
+        </div>
     </div>
 </asp:Content>
 

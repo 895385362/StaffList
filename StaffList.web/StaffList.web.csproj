@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D749D17C-DB72-483D-AE3B-685D1991415D}</ProjectGuid>
+    <ProjectGuid>{74738EDF-D779-4FC5-B29B-D5D57DD51717}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StaffList</RootNamespace>
-    <AssemblyName>StaffList</AssemblyName>
+    <RootNamespace>StaffList.web</RootNamespace>
+    <AssemblyName>StaffList.web</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -43,9 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AspNetPager, Version=7.5.1.0, Culture=neutral, PublicKeyToken=fb0a0fe055d40fd4, processorArchitecture=MSIL">
-      <HintPath>..\packages\AspNetPager.7.5.1.0\lib\AspNetPager.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -70,133 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BasePage.aspx" />
-    <Content Include="device.aspx" />
-    <Content Include="DeviceList.aspx" />
-    <Content Include="excersize.aspx" />
-    <Content Include="Joker_11_5ArrayList.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="MyWorld.aspx" />
-    <Content Include="OrderList.aspx" />
-    <Content Include="OrderModify.aspx" />
-    <Content Include="StaffList.aspx" />
-    <Content Include="StaffModify.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePage.aspx.cs">
-      <DependentUpon>BasePage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BasePage.aspx.designer.cs">
-      <DependentUpon>BasePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="device.aspx.cs">
-      <DependentUpon>device.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="device.aspx.designer.cs">
-      <DependentUpon>device.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DeviceList.aspx.cs">
-      <DependentUpon>DeviceList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DeviceList.aspx.designer.cs">
-      <DependentUpon>DeviceList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="excersize.aspx.cs">
-      <DependentUpon>excersize.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="excersize.aspx.designer.cs">
-      <DependentUpon>excersize.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Joker_11_5ArrayList.aspx.cs">
-      <DependentUpon>Joker_11_5ArrayList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Joker_11_5ArrayList.aspx.designer.cs">
-      <DependentUpon>Joker_11_5ArrayList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MyWorld.aspx.cs">
-      <DependentUpon>MyWorld.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MyWorld.aspx.designer.cs">
-      <DependentUpon>MyWorld.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OrderList.aspx.cs">
-      <DependentUpon>OrderList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OrderList.aspx.designer.cs">
-      <DependentUpon>OrderList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OrderModify.aspx.cs">
-      <DependentUpon>OrderModify.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OrderModify.aspx.designer.cs">
-      <DependentUpon>OrderModify.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
-    <Compile Include="StaffList.aspx.cs">
-      <DependentUpon>StaffList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StaffList.aspx.designer.cs">
-      <DependentUpon>StaffList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="StaffModify.aspx.cs">
-      <DependentUpon>StaffModify.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StaffModify.aspx.designer.cs">
-      <DependentUpon>StaffModify.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{e6d64706-1130-48d7-b829-d72e21682791}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StaffList.Common\StaffList.Common.csproj">
-      <Project>{c1a83314-c914-48d6-93d0-a1ac99b11595}</Project>
-      <Name>StaffList.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -211,9 +94,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49856</DevelopmentServerPort>
+          <DevelopmentServerPort>52335</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49856/</IISUrl>
+          <IISUrl>http://localhost:52335/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

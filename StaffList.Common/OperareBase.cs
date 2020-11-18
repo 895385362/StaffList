@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace DAL
+namespace Common
 {
     public class OperareBase
     {
